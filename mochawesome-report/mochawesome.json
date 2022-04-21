@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-04-21T16:10:31.826Z",
+    "end": "2022-04-21T16:10:34.648Z",
+    "duration": 2822,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a5c4840f-7ca4-40fc-9cea-4f134ae5f0ef",
+      "title": "",
+      "fullFile": "cypress/integration/auth_test.spec.js",
+      "file": "cypress/integration/auth_test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c154e132-ce1b-4176-96ef-438b7d6a1b9b",
+          "title": "Test authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test endpoint, try to GET catalog with auth KO",
+              "fullTitle": "Test authentication Test endpoint, try to GET catalog with auth KO",
+              "timedOut": null,
+              "duration": 1520,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: 'https://sbx-api-sec.ziniopro.com/oauth/v2/tokens',\n  form: true,\n  headers: {\n    \"Autorization\": \"bearer \" + access_token\n  },\n  body: {\n    \"client_id\": \"C9EeT8cWZ7u7LcYYvOTlFyONeHCN3OZp\",\n    \"client_secret\": \"ns1huoaQM3aCPq1yh6dcizirP99cMrsc\",\n    \"grant_type\": \"client_credentials\"\n  }\n}).then(response => {\n  expect(response).property('status').to.equal(200); //expect(response.status).to.be.equal(401)\n});\ncy.request({\n  method: 'GET',\n  url: 'https://sbx-api-sec.ziniopro.com/catalog/v2/catalogs?access_token=' + access_token,\n  body: {\n    \"client_id\": \"C9EeT8cWZ7u7LcYYvOTlFyONeHCN3OZp\",\n    \"client_secret\": \"ns1huoaQM3aCPq1yh6dcizirP99cMrsc\",\n    \"grant_type\": \"client_credentials\"\n  }\n}).then(response => {\n  cy.log(JSON.stringify(response));\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://sbx-api-sec.ziniopro.com/catalog/v2/catalogs?access_token=undefined\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://sbx-api-sec.ziniopro.com/catalog/v2/catalogs?access_token=undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.5.4 Chrome/94.0.4606.81 Electron/15.3.5 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 133\n}\nBody: {\"client_id\":\"C9EeT8cWZ7u7LcYYvOTlFyONeHCN3OZp\",\"client_secret\":\"ns1huoaQM3aCPq1yh6dcizirP99cMrsc\",\"grant_type\":\"client_credentials\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Thu, 21 Apr 2022 16:13:45 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"connection\": \"keep-alive\",\n  \"content-length\": \"90\",\n  \"access-control-allow-origin\": \"*\",\n  \"access-control-expose-headers\": \"X-User-ID,X-ZINIO-User-Id,Authorization,Content-Type,x-pagination-limit,x-pagination-page,x-pagination-page-total,x-pagination-total\",\n  \"server\": \"kong/1.0.2\"\n}\nBody: {\n  \"error_description\": \"The access token is invalid or has expired\",\n  \"error\": \"invalid_token\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://sbx-api-sec.ziniopro.com/catalog/v2/catalogs?access_token=undefined\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://sbx-api-sec.ziniopro.com/catalog/v2/catalogs?access_token=undefined\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.5.4 Chrome/94.0.4606.81 Electron/15.3.5 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 133\n}\nBody: {\"client_id\":\"C9EeT8cWZ7u7LcYYvOTlFyONeHCN3OZp\",\"client_secret\":\"ns1huoaQM3aCPq1yh6dcizirP99cMrsc\",\"grant_type\":\"client_credentials\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Thu, 21 Apr 2022 16:13:45 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"connection\": \"keep-alive\",\n  \"content-length\": \"90\",\n  \"access-control-allow-origin\": \"*\",\n  \"access-control-expose-headers\": \"X-User-ID,X-ZINIO-User-Id,Authorization,Content-Type,x-pagination-limit,x-pagination-page,x-pagination-page-total,x-pagination-total\",\n  \"server\": \"kong/1.0.2\"\n}\nBody: {\n  \"error_description\": \"The access token is invalid or has expired\",\n  \"error\": \"invalid_token\"\n}\n\n\nhttps://on.cypress.io/request\n    at http://localhost:58263/__cypress/runner/cypress_runner.js:160667:80\n    at tryCatcher (http://localhost:58263/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:58263/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:58263/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:58263/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:58263/__cypress/runner/cypress_runner.js:11139:18)\n    at _drainQueueStep (http://localhost:58263/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:58263/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:58263/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:58263/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:58263/__cypress/tests?p=cypress\\integration\\auth_test.spec.js:115:7)",
+                "diff": null
+              },
+              "uuid": "c3a93fdc-a811-44d4-9c2f-74b1f4dad1d1",
+              "parentUUID": "c154e132-ce1b-4176-96ef-438b7d6a1b9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Generate token",
+              "fullTitle": "Test authentication Generate token",
+              "timedOut": null,
+              "duration": 333,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//to get the token id(access token)\ncy.request({\n  method: 'POST',\n  url: 'https://sbx-api-sec.ziniopro.com/oauth/v2/tokens',\n  form: true,\n  body: {\n    \"client_id\": \"C9EeT8cWZ7u7LcYYvOTlFyONeHCN3OZp\",\n    \"client_secret\": \"ns1huoaQM3aCPq1yh6dcizirP99cMrsc\",\n    \"grant_type\": \"client_credentials\"\n  }\n}).then(response => {\n  expect(response).property('status').to.equal(200);\n  cy.log(JSON.stringify(response));\n  cy.log('TOKEN: ' + response.body.access_token);\n  access_token = response.body.access_token;\n});",
+              "err": {},
+              "uuid": "68256fb9-a2f8-46e4-afe3-faab4eb1b4ab",
+              "parentUUID": "c154e132-ce1b-4176-96ef-438b7d6a1b9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Auth OK",
+              "fullTitle": "Test authentication Auth OK",
+              "timedOut": null,
+              "duration": 31,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "00f61951-02ef-4bc7-bdbc-9ab2a6c41b5e",
+              "parentUUID": "c154e132-ce1b-4176-96ef-438b7d6a1b9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test endpoint, GET catalog with auth OK",
+              "fullTitle": "Test authentication Test endpoint, GET catalog with auth OK",
+              "timedOut": null,
+              "duration": 738,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: 'https://sbx-api-sec.ziniopro.com/oauth/v2/tokens',\n  form: true,\n  headers: {\n    \"Autorization\": \"bearer \" + access_token\n  },\n  body: {\n    \"client_id\": \"C9EeT8cWZ7u7LcYYvOTlFyONeHCN3OZp\",\n    \"client_secret\": \"ns1huoaQM3aCPq1yh6dcizirP99cMrsc\",\n    \"grant_type\": \"client_credentials\"\n  }\n}).then(response => {\n  cy.log(JSON.stringify(response));\n});\ncy.request({\n  method: 'GET',\n  url: 'https://sbx-api-sec.ziniopro.com/catalog/v2/catalogs?access_token=' + access_token,\n  body: {\n    \"client_id\": \"C9EeT8cWZ7u7LcYYvOTlFyONeHCN3OZp\",\n    \"client_secret\": \"ns1huoaQM3aCPq1yh6dcizirP99cMrsc\",\n    \"grant_type\": \"client_credentials\"\n  }\n}).then(response => {\n  expect(response).property('status').to.equal(200);\n  cy.log(JSON.stringify(response));\n});",
+              "err": {},
+              "uuid": "be1aa56c-f47a-4e1e-98a6-2dd378abe983",
+              "parentUUID": "c154e132-ce1b-4176-96ef-438b7d6a1b9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "68256fb9-a2f8-46e4-afe3-faab4eb1b4ab",
+            "00f61951-02ef-4bc7-bdbc-9ab2a6c41b5e",
+            "be1aa56c-f47a-4e1e-98a6-2dd378abe983"
+          ],
+          "failures": [
+            "c3a93fdc-a811-44d4-9c2f-74b1f4dad1d1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2622,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
